@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <a href="index.html">
+            <img src="logo.jpg" alt="">
+          </a>
+        </div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <div class="container">
+        <h1 class="mt-5">Lista de Compras</h1>
+        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addModal">Adicionar Item</button>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Produtos</h2>
+                <ul id="productsList" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Adicionar Item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addForm">
+                        <div class="form-group">
+                            <label for="productName">Nome do Produto</label>
+                            <input type="text" class="form-control" id="productName" name="productName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productValue">Valor</label>
+                            <input type="number" step="0.01" class="form-control" id="productValue" name="productValue" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productQuantity">Quantidade</label>
+                            <input type="number" class="form-control" id="productQuantity" name="productQuantity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productUnit">Unidade</label>
+                            <select class="form-control" id="productUnit" name="productUnit" required>
+                                <option value="UN">Unidade</option>
+                                <option value="KG">Quilo</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" id="addProduct">Adicionar Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+
+    <footer>
+        <div id="subtotal-container">
+            <p>Subtotal: R$ <span id="subtotal">0.00</span></p>
+        </div>        
+      </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+
+function renderProducts() {
+    $('#productsList').empty();
+    products.forEach(product => {
+        let listItem = $('<li>').addClass('list-group-item d-flex justify-content-between align-items-center');
+        listItem.text(product.name + ' - ' + 'R$ ' + product.value + ' - ' + product.quantity + ' ' + product.unit);
+        listItem.append('<button class="btn btn-danger btn-sm delete-product" data-index="' + products.indexOf(product) + '">Remover</button>');
+        $('#productsList').append(listItem);
+    });
+
+    // Atualiza o subtotal após renderizar os produtos
+    updateSubtotal();
+}
+
+function updateSubtotal() {
+    let subtotal = 0;
+    products.forEach(product => {
+        subtotal += product.value * product.quantity;
+    });
+
+    // Atualiza o elemento HTML que exibe o subtotal
+    $('#subtotal').text(subtotal.toFixed(2));
+}
+
+renderProducts();
+
+$('#addProduct').on('click', function() {
+    let product = {
+        name: $('#productName').val(),
+        value: parseFloat($('#productValue').val()),
+        quantity: parseInt($('#productQuantity').val()),
+        unit: $('#productUnit').val()
+    };
+    products.push(product);
+    localStorage.setItem('products', JSON.stringify(products));
+    $('#addModal').modal('hide');
+    renderProducts();
+});
+
+$('#productsList').on('click', '.delete-product', function() {
+    let index = $(this).data('index');
+    products.splice(index, 1);
+    localStorage.setItem('products', JSON.stringify(products));
+    renderProducts();
+});
+
+    </script>
+</body>
+</html>

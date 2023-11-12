@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
+  <title>Dibrahkol Atacarejo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="#">
+        <img src="logo.jpg" alt="">
+      </a>
+    </div>
+    <input type="checkbox" id="nav_check" hidden>
+    <nav>
+        <ul>
+            <li>
+              <a href="listaCompras.html" id="openList">
+                <i class="fa-solid fa-clipboard-list"></i>
+              </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+  <div id="search-container">
+    <input type="text" id="product-search">
+    <button onclick="searchProducts()" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <button id="clear-button" onclick="clearSearch()">
+      <i class="fa-solid fa-times"></i>
+    </button>
+  </div>
+
+  <div id="search-results"></div>
+
+<!-- -------------------- OFERTAS ---------------------- -->
+  <section id="ofertas" class="ofertas">
+    <div class="tittle">
+      <h2>Ofertas do Dia</h2> 
+    </div>
+
+    <div class="product-container">
+
+      <img class="product-image" src="https://cristalalimentos.com.br/wp-content/uploads/2016/11/Espaguete500g.jpg" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Macarrão Cristal</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+      <img class="product-image" src="https://img.sitemercado.com.br/produtos/2b11fc8dc6122042a8c68de7eda04bd3fb9376f8aa7bc70d19d1172ba106e867_full.jpg" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Arroz Sol 5kg</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+      <img class="product-image" src="https://pxtonline.com.br/2021/2643-large_default/oleo-de-soja-brejeiro-pet-900ml-fardo-com-6-unidades.jpg" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Oleo Soja Brejeiro 900ml</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <a href="#">
+        VER MAIS
+      </a>
+    </div>
+  </section>
+
+<section class="acougue">
+    <div class="tittle">
+      <h2>Açougue</h2> 
+    </div>
+
+    <div class="product-container">
+      <img class="product-image" src="https://chanessupermercado.com.br/ofertas/wp-content/uploads/2023/06/Acem.png" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Acem Bovino</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="product-container">
+      <img class="product-image" src="https://i0.wp.com/porkworld.com.br/wp-content/uploads/2022/05/bolo-de-leite-ninho.png?fit=1152%2C648&ssl=1" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Leite</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$00,00
+        </div>
+      </div>
+      
+      </div>
+    </div>
+
+    <div class="product-container">
+      <img class="product-image" src="https://i0.wp.com/porkworld.com.br/wp-content/uploads/2022/05/bolo-de-leite-ninho.png?fit=1152%2C648&ssl=1" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Pão</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="#">
+        VER MAIS
+      </a>
+    </div>
+  </section>
+
+  <section class="padaria">
+    <div class="tittle">
+      <h2>Padaria</h2>
+    </div>
+    <div class="product-container">
+      <img class="product-image" src="https://i0.wp.com/porkworld.com.br/wp-content/uploads/2022/05/bolo-de-leite-ninho.png?fit=1152%2C648&ssl=1" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Bolo</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="product-container">
+      <img class="product-image" src="https://i0.wp.com/porkworld.com.br/wp-content/uploads/2022/05/bolo-de-leite-ninho.png?fit=1152%2C648&ssl=1" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Farinha</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="product-container">
+      <img class="product-image" src="https://i0.wp.com/porkworld.com.br/wp-content/uploads/2022/05/bolo-de-leite-ninho.png?fit=1152%2C648&ssl=1" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Leite</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="#">
+        VER MAIS
+      </a>
+    </div>
+  </section>
+
+  <section id="hortifruti" class="hortifruti">
+    <div class="tittle">
+      <h2>Hortifruti</h2>
+    </div>
+
+    <div class="product-container">
+      <img class="product-image" src="https://i0.wp.com/porkworld.com.br/wp-content/uploads/2022/05/bolo-de-leite-ninho.png?fit=1152%2C648&ssl=1" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Banana</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="product-container">
+      <img class="product-image" src="https://i0.wp.com/porkworld.com.br/wp-content/uploads/2022/05/bolo-de-leite-ninho.png?fit=1152%2C648&ssl=1" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Maçã</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+      
+    </div>
+    <div class="product-container">
+      <img class="product-image" src="https://i0.wp.com/porkworld.com.br/wp-content/uploads/2022/05/bolo-de-leite-ninho.png?fit=1152%2C648&ssl=1" alt="Nome do Produto">
+      <div class="product-details">
+        <div class="product-title">Laranja</div>
+                
+        <span class="price">00,00</span>
+        
+        <div class="product-price">
+          <span class="percent">-10%</span>
+          R$ 00,00
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="#">
+        VER MAIS
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

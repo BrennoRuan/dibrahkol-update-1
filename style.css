@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+/* --------------- CONFIGURAÇÕES GLOBAIS --------------- */
+:root {
+    --cor-principal: #151877;
+    --cor-secundaria: #292CAD;
+
+    --fonte-logo: 'Flipahaus', sans-serif;
+}
+
+/* ------------------------------------------------------- */
+body {
+    background-color: #fff;
+}
+
+header {
+    background: rgb(41,44,173);
+    background: radial-gradient(circle, #292CAD 0%, #151877 100%);
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+header .logo img {
+    height: 50px;
+}
+header nav ul {
+    display: flex;
+}
+header nav ul li a {
+    display: inline-block;
+    color: #fff;
+    padding: 5px 0;
+    margin: 0 10px;
+    border: 3px solid transparent;
+    text-transform: uppercase;
+    transition: 0.2s;
+    font-size: 16px;
+}
+
+
+
+.tittle {
+    background-color: #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 35px;
+}
+.tittle a {
+    color: #414141;
+    font-weight: 800;
+}
+
+.product-container {
+    background-color: #ffffff84;
+    padding: 20px; 
+    margin: 20px; 
+    border: 2px solid var(--cor-principal); 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    display: flex; 
+    align-items: center; 
+    max-height: 250px;
+}
+
+.product-image {
+    max-width: 120px;
+    max-height: 100px;
+    height: 100px;
+    width: 120px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.product-details {
+    flex-grow: 1;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-price {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--cor-principal);
+}
+
+.percent  {
+    background-color: var(--cor-secundaria);
+    padding: 3px 4px;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+    text-align: center;
+
+}
+.price {
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #505050;
+}
+.price::before {
+    content: "R$ ";
+}
+
+
+
+#search-container.search-visible {
+    display: block;
+}
+
+
+#search-container {
+    margin: 40px 0;
+    text-align: center;
+}
+
+#product-search {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#search-button, 
+#clear-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-to-cart-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#search-results {
+    display: none;
+}
+#openList {
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #fff; 
+    border: 2px solid var(--cor-secundaria);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.botaoMais {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    z-index: 1000;
+}
+#compartilhar, #adicionar {
+    background-color: var(--cor-secundaria);
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.col-md-4 {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.footer {
+    margin: 40px 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+footer {
+    background-color: var(--cor-principal);
+    color: #fff;
+    font-weight: 800;
+    height: 85px;
+}
+footer p {
+    padding: 30px;
+}
